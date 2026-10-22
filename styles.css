@@ -1,0 +1,11 @@
+:root{--moss:#2f4a2b;--leaf:#8fbf5a;--soil:#3b2f26;--mist:#eef2ea;--ink:#1d2419}
+body{margin:0;font:16px/1.5 Georgia,serif;background:var(--mist);color:var(--ink)}
+header{background:var(--moss);color:#fff;padding:.8rem 1.5rem;font-size:1.2rem}main{max-width:960px;margin:auto;padding:1rem}
+input,select,button{font:inherit;padding:.4rem .6rem;margin:.2rem;border:1px solid var(--moss);border-radius:4px}
+button{background:var(--moss);color:#fff;cursor:pointer}button:disabled{opacity:.4}button:focus-visible,input:focus-visible{outline:3px solid var(--leaf)}
+.row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.card{background:#fff;border-left:6px solid var(--leaf);padding:1rem;cursor:grab;max-width:520px;box-shadow:0 2px 6px #0003}
+.board{min-height:5rem;padding:.5rem;border:2px dashed var(--soil)}
+.target{padding:.7rem 1rem;background:#dfe8d6;border:2px solid var(--moss);min-width:6rem;text-align:center}
+.target.cdk-drop-list-receiving{background:var(--leaf)}.target.hint{outline:4px solid #e0a100}
+table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #0002;padding:.3rem;text-align:left}.err{color:#a00}
