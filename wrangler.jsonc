@@ -1,0 +1,10 @@
+
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "gardeners-game-fe",
+  "compatibility_date": "2026-11-03",
+  "assets": {
+    "directory": "./dist/GardenersGameFE/browser",
+    "not_found_handling": "single-page-application"
+  }
+}
