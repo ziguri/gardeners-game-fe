@@ -23,7 +23,7 @@ jobs:
         run: npm run build -- --configuration production
 
       - name: Publish to Cloudflare Pages
-        run: npx wrangler pages deploy ./dist --project-name="gardeners-game-fe"
+        run: npx wrangler pages deploy ./dist --project-name="gardeners-game-fe" --do-not-fail-if-missing
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
