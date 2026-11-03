@@ -2,12 +2,17 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-export const API = 'http://localhost:8080/api';
+import { Art } from './art';
+import {environment} from '../environments/environment';
+export const API = environment.apiUrl;
 export class Auth { static get token() { return sessionStorage.getItem('t'); } }
-@Component({ selector: 'app-login', imports: [FormsModule], template: `
-  <h1>Welcome to the Gardeners</h1>
-  <input placeholder="Username" [(ngModel)]="u"><input type="password" placeholder="Password" [(ngModel)]="p">
-  <button (click)="go()">Sign in</button><p class="err">{{err}}</p>` })
+@Component({ selector: 'app-login', imports: [FormsModule, Art], template: `
+  <div class="narrow center">
+    <app-art/><h1 class="title">Gardeners</h1><p class="tag">Meet your unit. Drag. Drop. Grow.</p>
+    <input aria-label="Username" placeholder="Username" [(ngModel)]="u">
+    <input aria-label="Password" type="password" placeholder="Password" [(ngModel)]="p" (keyup.enter)="go()">
+    <button class="btn navy" (click)="go()">Sign in</button><p class="err" role="alert">{{err}}</p>
+  </div>` })
 export class Login {
   u = ''; p = ''; err = ''; http = inject(HttpClient); r = inject(Router);
   go() {

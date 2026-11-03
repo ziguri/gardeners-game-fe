@@ -1,12 +1,9 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
-@Component({
-  imports: [RouterOutlet],
-  selector: 'app-root',
-  styleUrl: './app.css',
-  templateUrl: './app.html',
-})
+import { Component, inject } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
+import { Auth } from './login';
+@Component({ selector: 'app-root', imports: [RouterOutlet], template: `
+<header><span class="pill">CTW · Gardeners</span>@if (signedIn()) { <button class="out" (click)="out()">Sign out</button> }</header><main><router-outlet/></main>` })
 export class App {
-  protected readonly title = signal('GardenersGameFE');
+  r = inject(Router); signedIn() { return !!Auth.token; }
+  out() { sessionStorage.removeItem('t'); this.r.navigate(['']); }
 }
