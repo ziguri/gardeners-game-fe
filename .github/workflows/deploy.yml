@@ -23,9 +23,7 @@ jobs:
         run: npm run build -- --configuration production
 
       - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: 'gardeners-game-fe'
-          directory: './dist' # Altera para a tua pasta de build (ex: .next, build, dist)
+        run: npx wrangler pages deploy ./dist --project-name="gardeners-game-fe"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
